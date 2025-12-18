@@ -3,7 +3,6 @@ from tkinter import messagebox
 import pywhatkit
 from datetime import datetime, timedelta
 
-# ---------- Functions ----------
 def send_message():
     mobile = entry_mobile.get().strip()
     message = text_message.get("1.0", tk.END).strip()
@@ -33,7 +32,7 @@ def send_message():
             fg="green"
         )
     except Exception as e:
-        status_label.config(text="Failed to send message ❌", fg="red")
+        status_label.config(text="Failed to send message", fg="red")
         messagebox.showerror("Error", str(e))
 
 
@@ -43,14 +42,12 @@ def clear_fields():
     status_label.config(text="")
 
 
-# ---------- UI ----------
 root = tk.Tk()
 root.title("PyWhatsApp Web Sender")
 root.geometry("450x450")
 root.resizable(False, False)
 root.configure(bg="#ECE5DD")
 
-# Header
 header = tk.Frame(root, bg="#075E54", height=60)
 header.pack(fill="x")
 
@@ -62,7 +59,6 @@ tk.Label(
     font=("Segoe UI", 18, "bold")
 ).pack(pady=12)
 
-# Main Frame
 main = tk.Frame(root, bg="#ECE5DD")
 main.pack(pady=20)
 
@@ -96,7 +92,6 @@ text_message = tk.Text(
 )
 text_message.grid(row=3, column=0, pady=5)
 
-# Buttons
 btn_frame = tk.Frame(root, bg="#ECE5DD")
 btn_frame.pack(pady=10)
 
@@ -124,7 +119,6 @@ clear_btn = tk.Button(
 )
 clear_btn.grid(row=0, column=1)
 
-# Status Bar
 status_label = tk.Label(
     root,
     text="",
